@@ -1,0 +1,210 @@
+body{
+    width: 100vw;
+    max-width:100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgb(243, 232, 248);
+}
+
+#contentBlock{
+    width: 90vw;
+    height: fit-content;
+    margin: 0 auto;
+    background-color: white;
+    padding-bottom: 40px;
+    border-radius: 25px;
+}
+
+h1{
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 10px;
+    font-size: 5em; 
+    padding: 20px;
+    text-align:center;  
+    margin-bottom: 25px; 
+    padding-top: 40px;
+    text-decoration: underline rgb(192, 245, 245);
+}
+
+#buttonBlock{
+    text-align: center;
+    margin-top: 50px;
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.image{
+    width: 100px;
+}
+
+
+.button{
+    padding: 20px;
+    margin-right: 20px;
+    background-color: lightcyan;
+    cursor: pointer;
+    transition: background-color 0.15s linear, transform 0.15s linear;
+}
+
+.button:last-of-type{
+    margin-right: 0;
+}
+
+.button:hover{
+    background-color: antiquewhite;
+    transform: scale(1.08);
+}
+
+.noHover{
+    pointer-events: none;
+}
+
+.buttonAnimation{
+    background-color: antiquewhite;
+    transform: scale(1.08);
+    transition: background-color 0.15s linear, transform 0.3s ease-in-out,  border 0.3s ease-in-out;
+    border: 2px solid black;
+}
+
+#gameInfoBlock{
+    width: 30%;
+    height: fit-content;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+h2{
+    color: white;
+    background-color: black;
+    text-align: center;
+    padding: 10px 10px;
+    font-size: 2em;
+    margin-top: 25px;
+    letter-spacing: 3px;
+}
+
+#result{
+    width: 50%;
+    height: fit-content;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 3px 10px 38px 8px rgba(101,122,255,0.75);
+    animation: slideaway 0.35s ease-in;
+    border-radius: 25px;
+    margin-top: 25px;
+    margin: 0 auto;
+    display: none;
+}
+
+@keyframes slideaway {
+    from {opacity: 0;}
+    to {display: flex;}
+  }
+  
+#result h2{
+    display: inline-block;
+    font-size: 3em;
+    margin-bottom: 0;
+}
+#playAgain{
+    border-radius: 25px;
+    cursor: pointer;
+    background-color: aqua;
+    font-size: 1em;
+    padding: 10px 20px;
+    margin: 10px 30px;
+    margin-bottom: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 3px;
+    font-weight: 600;
+    border: none;
+}
+
+#countDown{
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 3em;
+    border-radius: 50%;
+    padding-left: 13px;
+    padding-bottom: 16px;
+    display: none;
+}
+
+#compHand{
+    display: none;
+}
+
+#playerHand{
+    border-radius: 5px;
+    overflow-wrap: break-word;
+    text-align: center;
+}
+
+@media (max-width: 520px) {
+    #buttonBlock{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .button{
+        margin: 15px;
+    }
+
+    .button:last-of-type{
+        margin: 15px;
+    }
+    
+    h1{
+        font-size: 2em;
+        margin-bottom: 0;
+    }
+
+    h2{
+        font-size: 1em;
+    }
+
+    .image{
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 490px)
+{
+    #result h2{
+        font-size: 1.6em;
+    }
+
+    #result{
+        margin-top: 20px;
+    }
+
+    #gameInfoBlock{
+        margin-top: 0px;
+        width: 50%;
+    }
+
+    #countDown{
+        font-size: 1.5em;
+        width: 20px;
+        height: 20px
+    }
+
+}

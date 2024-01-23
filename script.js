@@ -59,24 +59,20 @@ function timerFunction(){
     }, 1000);
 }
 
-//Block loading animation
-function loadingAnimation(){
-    setTimeout(() => {
-        rock.classList.add("buttonAnimation");
-        setTimeout(() => {
-            rock.classList.remove("buttonAnimation");
-            paper.classList.add("buttonAnimation");
-            setTimeout(() => {
-                paper.classList.remove("buttonAnimation");
-                scissors.classList.add("buttonAnimation");
-                setTimeout(()=>{
-                    scissors.classList.remove("buttonAnimation");                        
-                }, 700);
-            }, 700);
-        }, 700);
-    }, 900); 
+//Block loading animation 
+async function load(time, y, x){
+    return setTimeout(() => {
+        y.classList.add("buttonAnimation");
+        x.classList.remove("buttonAnimation");
+    }, time);
 }
 
+async function executeLoad(){
+    await load(300, rock, scissors);
+    await load(1000, paper, rock);
+    await load(2000, scissors, paper);
+    await load(3000, scissors, scissors);
+}
 
 
 //Rock button selector
@@ -119,7 +115,7 @@ rock.addEventListener('click', function(event){
     }, 3000);
 
     timerFunction();
-    loadingAnimation();
+    executeLoad();
 });
 
 
@@ -164,7 +160,7 @@ paper.addEventListener('click', function(event){
     }, 3000);
 
     timerFunction();
-    loadingAnimation();
+    executeLoad();
 });
 
 
@@ -209,7 +205,7 @@ scissors.addEventListener('click', function(event){
     }, 3000);
 
     timerFunction();
-    loadingAnimation();
+    executeLoad();
 });
 
 //Play Again Reset
@@ -235,14 +231,3 @@ playAgain.addEventListener("click", function(event){
     paper.classList.remove("buttonAnimation");
     scissors.classList.remove("buttonAnimation");
 });
-
-
-
-
-
-
-
-
-
-
-

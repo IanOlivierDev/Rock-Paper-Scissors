@@ -68,7 +68,7 @@ async function load(time, y, x){
 }
 
 async function executeLoad(){
-    await load(300, rock, scissors);
+    await load(100, rock, scissors);
     await load(1000, paper, rock);
     await load(2000, scissors, paper);
     await load(3000, scissors, scissors);

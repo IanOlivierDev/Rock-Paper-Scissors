@@ -1,8 +1,7 @@
 body{
     width: 100vw;
-    max-width:100%;
-    height: 100vh;
-    margin: 0;
+    max-width: 100%;
+    margin: 0 auto;
     padding: 0;
     display: flex;
     align-items: center;
@@ -13,7 +12,6 @@ body{
 
 #contentBlock{
     width: 90vw;
-    height: fit-content;
     margin: 0 auto;
     background-color: white;
     padding-bottom: 40px;
@@ -154,6 +152,76 @@ h2{
     text-align: center;
 }
 
+#scoreKeeper{
+    width: 30%;
+    height: fit-content;
+    background-color: rgb(201, 255, 255);
+    margin: 0 auto;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-bottom: 20px;
+    border-radius: 25px;
+    border: 1px solid black;
+    display: none;
+    animation: display 0.35s ease-in;
+}
+
+@keyframes display {
+    from{opacity: 0;}
+
+    to{display: flex;}
+}
+
+#scoreKeeper label, #scoreKeeper span{
+    display: inline-block;
+    font-size: 2em;
+    margin: 5px;
+    font-weight: 600;
+}
+
+#scoreKeeper label{
+    text-decoration: underline;
+}
+
+#scoreKeeper span{
+    display: inline-block;
+    font-size: 2.3em;
+    text-align: center;
+}
+
+#scoreKeeper h2{
+    border-radius: 5px;
+}
+
+.score{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.score:nth-of-type(1){
+    margin-right: 8px;
+}
+
+.score:nth-of-type(2){
+    margin-left: 10px;
+}
+
+.playerScore{
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 720px){
+    #scoreKeeper span, #scoreKeeper label{
+        font-size: 1.2em;
+    }
+}
+
 @media (max-width: 520px) {
     #buttonBlock{
         display: flex;
@@ -184,6 +252,10 @@ h2{
         width: 50px;
         height: 50px;
     }
+
+    #scoreKeeper span, #scoreKeeper label{
+        font-size: 1em;
+    }
 }
 
 @media (max-width: 490px)
@@ -207,4 +279,16 @@ h2{
         height: 20px
     }
 
+    #scoreKeeper span, #scoreKeeper label{
+        font-size: 1em;
+        margin: 0;
+    }
+    
+
+}
+
+@media (min-width: 490px){
+    body{
+        height: 100vh;
+    }
 }

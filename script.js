@@ -10,15 +10,23 @@ let score = document.querySelector("#score");
 let countDown = document.querySelector("#countDown");
 let time = 0;
 
+//Score keeper logic
+let playerScoreKeeper = 0;
+let cpuScoreKeeper = 0;
+let playerScore = document.querySelector("#playerScore");
+let cpuScore = document.querySelector("#cpuScore");
+let scoreBlock = document.querySelector("#scoreKeeper");
 
-let randHand = ()=>{
-    return Math.floor(Math.random() * 3) + 1;
-}
+
 
 //Hand Chosen logic
 //1 = Rock
 //2 = Paper
 //3 = Rock
+
+let randHand = ()=>{
+    return Math.floor(Math.random() * 3) + 1;
+}
 function randCompHand(){
     if (randHand() === 1){
         console.log("CPU rock");
@@ -89,7 +97,7 @@ rock.addEventListener('click', function(event){
     paper.disabled = true;
     scissors.disabled = true;  
     countDown.style.display = "block";
-
+    
     randCompHand();
 
     //Results logic
@@ -102,16 +110,22 @@ rock.addEventListener('click', function(event){
             compHand.textContent = "Computers Choice";
         }
         else if (compHand.textContent === "Paper"){
-            score.textContent = "LOSER : Paper beats Your Rock";
+            score.textContent = "LOSER : CPU Paper beats Your Rock";
             result.style.display = "block flex";
             playerHand.style.display = "none";
+            cpuScoreKeeper++;
+            console.log("cpu score: " + cpuScoreKeeper);
+            cpuScore.textContent = cpuScoreKeeper;
         }
-
         else{
-            score.textContent = "Winner : Rock beats CPU Scissors";
+            score.textContent = "Winner : Your Rock beats CPU Scissors";
             result.style.display = "block flex";
             playerHand.style.display = "none";
+            playerScoreKeeper ++;
+            console.log("player score: " + playerScoreKeeper);
+            playerScore.textContent = playerScoreKeeper;
         }
+        scoreBlock.style.display = "flex";
     }, 3000);
 
     timerFunction();
@@ -142,21 +156,27 @@ paper.addEventListener('click', function(event){
         if (compHand.textContent === "Rock")
         {
             result.style.display = "block flex";
-            score.textContent = "WINNER : Paper Beats CPU Rock";
+            score.textContent = "WINNER : Your Paper Beats CPU Rock";
             playerHand.style.display = "none";
             compHand.textContent = "Computers Choice";
+            playerScoreKeeper ++;
+            console.log("player score: " + playerScoreKeeper);
+            playerScore.textContent = playerScoreKeeper;
         }
         else if (compHand.textContent === "Paper"){
             score.textContent = "TIE : You both chose Paper";
             result.style.display = "block flex";
             playerHand.style.display = "none";
         }
-
         else{
-            score.textContent = "LOSER : Scissors beat your Paper";
+            score.textContent = "LOSER : CPU Scissors beat your Paper";
             result.style.display = "block flex";
             playerHand.style.display = "none";
+            cpuScoreKeeper++;
+            console.log("cpu score: " + cpuScoreKeeper);
+            cpuScore.textContent = cpuScoreKeeper;
         }
+        scoreBlock.style.display = "flex";
     }, 3000);
 
     timerFunction();
@@ -193,15 +213,22 @@ scissors.addEventListener('click', function(event){
             compHand.textContent = "Computers Choice";
         }
         else if (compHand.textContent === "Paper"){
-            score.textContent = "Winner : Scissors beats CPU Paper";
+            score.textContent = "Winner : Your Scissors beats CPU Paper";
             result.style.display = "block flex";
             playerHand.style.display = "none";
+            playerScoreKeeper ++;
+            console.log("player score: " + playerScoreKeeper);
+            playerScore.textContent = playerScoreKeeper;
         }
         else{
-            score.textContent = "Loser : Rock beats Your Scissors";
+            score.textContent = "Loser : CPU Rock beats Your Scissors";
             result.style.display = "block flex";
             playerHand.style.display = "none";
+            cpuScoreKeeper++;
+            console.log("cpu score: " + cpuScoreKeeper);
+            cpuScore.textContent = cpuScoreKeeper;
         }
+        scoreBlock.style.display = "flex";
     }, 3000);
 
     timerFunction();
